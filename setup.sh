@@ -1,10 +1,12 @@
 #!/bin/bash
 
+sudo apt-get update && sudo apt-get install -y xterm
+
 function install_packettracer() {
     echo "Installing Packet Tracer..."
     cd /tmp || exit
-    wget https://github.com/dword32bit/packettracer/releases/download/8.2.2/Packet_Tracer822_amd64_signed.deb
-    sudo dpkg-deb -x ./Packet_Tracer822_amd64_signed.deb /
+    xterm -hold -e "wget https://github.com/dword32bit/packettracer/releases/download/8.2.2/Packet_Tracer822_amd64_signed.deb"
+    xterm -hold -e "sudo dpkg-deb -x ./Packet_Tracer822_amd64_signed.deb /"
     sudo rm -f Packet_Tracer822_amd64_signed.deb
     
     echo "Creating Packet Tracer shortcut..."
@@ -16,7 +18,7 @@ function install_packettracer() {
 
 function uninstall_packettracer() {
     echo "Uninstalling Packet Tracer..."
-    sudo apt-get remove --purge packettracer -y
+    xterm -hold -e "sudo apt-get remove --purge packettracer -y"
     sudo rm -rf /opt/pt
     sudo rm -f /usr/share/applications/PacketTracer.desktop
     echo "Packet Tracer has been successfully removed!"
