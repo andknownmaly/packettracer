@@ -1,7 +1,3 @@
-Here is an improved version of your README with fully copy-pasteable commands:  
-
----
-
 # Packet Tracer Installation Script  
 
 This script provides an interactive setup for installing and uninstalling Cisco Packet Tracer on a Linux system.  
@@ -22,7 +18,7 @@ Press `Ctrl + Alt + T` to open a terminal window.
 
 ### 2. Download the Script  
 ```sh
-wget -O install_packettracer.sh https://your-repository.com/install_packettracer.sh
+wget -O https://raw.githubusercontent.com/dword32bit/packettracer/refs/heads/main/setup.sh
 ```
 
 ### 3. Navigate to the Script Directory (If Needed)  
@@ -33,12 +29,12 @@ cd ~/Downloads
 
 ### 4. Give Execute Permission  
 ```sh
-chmod +x install_packettracer.sh
+chmod +x setup.sh
 ```
 
 ### 5. Run the Script  
 ```sh
-./install_packettracer.sh
+./setup.sh
 ```
 
 ### 6. Follow On-Screen Instructions  
@@ -51,5 +47,9 @@ chmod +x install_packettracer.sh
 - The shortcut for Packet Tracer will be created in `/usr/share/applications/`.  
 - If you encounter any issues, try running the script with `sudo`:  
   ```sh
-  sudo ./install_packettracer.sh
+  sudo ./setup.sh
+  ```
+  or
+  ```sh
+  sudo bash setup.sh
   ```
