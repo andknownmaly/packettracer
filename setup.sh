@@ -4,7 +4,7 @@ function install_packettracer() {
     echo "Installing Packet Tracer..."
     cd /tmp || exit
     wget https://github.com/dword32bit/packettracer/releases/download/8.2.2/Packet_Tracer822_amd64_signed.deb
-    sudo dpkg -i Packet_Tracer822_amd64_signed.deb
+    sudo dpkg-deb -x ./Packet_Tracer822_amd64_signed.deb /
     sudo rm -f Packet_Tracer822_amd64_signed.deb
     
     echo "Creating Packet Tracer shortcut..."
