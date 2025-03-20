@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update && sudo apt-get install -y xterm
-
+clear
 function install_packettracer() {
     echo "Installing Packet Tracer..."
     cd /tmp || exit
