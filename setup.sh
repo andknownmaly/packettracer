@@ -25,6 +25,7 @@ function uninstall_packettracer() {
 }
 
 while true; do
+    figlet "Packet Tracer Installer"
     echo "========================="
     echo "  Packet Tracer Setup  "
     echo "========================="
