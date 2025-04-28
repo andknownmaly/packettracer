@@ -18,7 +18,7 @@ Press `Ctrl + Alt + T` to open a terminal window.
 
 ### 2. Download the Script  
 ```sh
-curl -o setup.sh https://raw.githubusercontent.com/dword32bit/packettracer/main/setup.sh
+curl -o setup.sh https://raw.githubusercontent.com/andknwonmaly/packettracer/main/setup.sh
 ```
 
 ### 3. Navigate to the Script Directory (If Needed)  
