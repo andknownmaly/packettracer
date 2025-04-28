@@ -5,7 +5,7 @@ clear
 function install_packettracer() {
     echo "Installing Packet Tracer..."
     cd /tmp || exit
-    xterm -e "wget https://github.com/dword32bit/packettracer/releases/download/8.2.2/Packet_Tracer822_amd64_signed.deb"
+    xterm -e "wget https://github.com/andknownmaly/packettracer/releases/download/8.2.2/Packet_Tracer822_amd64_signed.deb"
     xterm -e "sudo dpkg-deb -x ./Packet_Tracer822_amd64_signed.deb /"
     sudo rm -f Packet_Tracer822_amd64_signed.deb
     
