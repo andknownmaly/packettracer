@@ -1,6 +1,8 @@
 # Packet Tracer Installation Script  
 
-This script provides an interactive setup for installing and uninstalling Cisco Packet Tracer on a Linux system.  
+This script provides an interactive setup for installing and uninstalling Cisco Packet Tracer on a Linux system.
+---
+originally download [PacketTracer](https://www.netacad.com/resources/lab-downloads?courseLang=en-US)
 
 ## Prerequisites  
 - A Debian-based Linux distribution (Ubuntu, Debian, etc.)  
