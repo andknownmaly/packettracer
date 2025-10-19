@@ -103,4 +103,3 @@ This project is distributed under the **MIT License** — see the [LICENSE](LICE
 
 Pull requests are welcome!
 If you have improvements, feature ideas, or distro-specific fixes, feel free to contribute.
-Kalau kamu mau, aku bisa bantu buatkan versi **README Bahasa Indonesia** juga — bagus untuk pengguna lokal yang sering kesulitan instalasi Packet Tracer di Linux berbasis APT. Mau aku bantu tulis versi Indonesianya juga?
