@@ -1,59 +1,106 @@
-# Packet Tracer Installation Script  
+# 🧠 Cisco Packet Tracer Installer for Linux
 
-This script provides an interactive setup for installing and uninstalling Cisco Packet Tracer without Error on a Linux system.
+[![Platform](https://img.shields.io/badge/platform-Linux-blue.svg)](https://www.linux.org/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Based On](https://img.shields.io/badge/based%20on-Debian%2FUbuntu-orange.svg)](https://ubuntu.com/)
+[![PacketTracer](https://img.shields.io/badge/Cisco-PacketTracer-red.svg)](https://www.netacad.com/resources/lab-downloads?courseLang=en-US)
+
+An **interactive installation and uninstallation script** for **Cisco Packet Tracer** on **Linux-based systems**, especially **APT-based distros** like Ubuntu, Debian, and Kali Linux.
+Designed to eliminate common installation errors and streamline setup for NetAcad users.
+
 ---
-<img width="517" height="385" alt="image" src="https://github.com/user-attachments/assets/34b4b832-459d-42dd-9c54-aec981ab75e4" />
 
-originally download [PacketTracer](https://www.netacad.com/resources/lab-downloads?courseLang=en-US)
+<img width="517" height="385" alt="Packet Tracer Installer Preview" src="https://github.com/user-attachments/assets/34b4b832-459d-42dd-9c54-aec981ab75e4" />
 
-## Prerequisites  
-- A Debian-based Linux distribution (Ubuntu, Debian, etc.)  
-- Internet connection  
+Originally, Packet Tracer can be downloaded from [Cisco NetAcad](https://www.netacad.com/resources/lab-downloads?courseLang=en-US).
 
-## Features  
-- Installs Packet Tracer automatically  
-- Uninstalls Packet Tracer if needed  
-- Uses `xterm` to show download and installation progress  
+---
 
-## Installation and Usage  
+## ⚙️ Features
 
-### 1. Open Terminal  
-Press `Ctrl + Alt + T` to open a terminal window.  
+* ✅ Automatic Packet Tracer installation
+* 🧹 Clean uninstallation option
+* 📦 Uses `xterm` to show download and installation progress
+* 🪄 Auto-checks dependencies for smooth setup
+* 🧰 Compatible with Debian, Ubuntu, Kali, and other APT-based distros
 
-### 2. Download the Script  
-```sh
+---
+
+## 🧩 Prerequisites
+
+* Debian-based Linux distribution (Ubuntu, Debian, Kali, etc.)
+* Active Internet connection
+
+---
+
+## 🚀 Installation & Usage
+
+### 1️⃣ Open Terminal
+
+Press `Ctrl + Alt + T` to open a terminal.
+
+### 2️⃣ Download the Script
+
+```bash
 curl -o setup.sh https://raw.githubusercontent.com/andknownmaly/packettracer/refs/heads/main/setup.sh
 ```
 
-### 3. Navigate to the Script Directory (If Needed)  
-If the script is in the `Downloads` folder, navigate there:  
-```sh
+### 3️⃣ Navigate to Script Directory (if needed)
+
+```bash
 cd ~/Downloads
 ```
 
-### 4. Give Execute Permission  
-```sh
+### 4️⃣ Give Execute Permission
+
+```bash
 chmod +x setup.sh
 ```
 
-### 5. Run the Script  
-```sh
+### 5️⃣ Run the Script
+
+```bash
 ./setup.sh
 ```
 
-### 6. Follow On-Screen Instructions  
-- Choose `1` to install Packet Tracer  
-- Choose `2` to uninstall Packet Tracer  
-- Choose `3` to exit the script  
+### 6️⃣ Follow the On-Screen Menu
 
-## Notes  
-- The script ensures `xterm` is installed before running the installation.  
-- The shortcut for Packet Tracer will be created in `/usr/share/applications/`.  
-- If you encounter any issues, try running the script with `sudo`:  
-  ```sh
+* `1` → Install Packet Tracer
+* `2` → Uninstall Packet Tracer
+* `3` → Exit
+
+---
+
+## 📝 Notes
+
+* The script ensures `xterm` is installed before continuing.
+* A desktop shortcut is created in:
+
+  ```
+  /usr/share/applications/
+  ```
+* If you face permission issues, try running with `sudo`:
+
+  ```bash
   sudo ./setup.sh
   ```
+
   or
-  ```sh
+
+  ```bash
   sudo bash setup.sh
   ```
+
+---
+
+## 🪪 License
+
+This project is distributed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome!
+If you have improvements, feature ideas, or distro-specific fixes, feel free to contribute.
+Kalau kamu mau, aku bisa bantu buatkan versi **README Bahasa Indonesia** juga — bagus untuk pengguna lokal yang sering kesulitan instalasi Packet Tracer di Linux berbasis APT. Mau aku bantu tulis versi Indonesianya juga?
