@@ -13,7 +13,7 @@ Designed to eliminate common installation errors and streamline setup for NetAca
 <img width="537" height="263" alt="image" src="https://github.com/user-attachments/assets/89aa918b-1c10-4f03-9c60-66e154e3a2a7" />
 
 
-Originally, Packet Tracer can be downloaded from [Cisco NetAcad](https://www.netacad.com/resources/lab-downloads?courseLang=en-US).
+Originally packet, this Packet Tracer is downloaded from [Cisco NetAcad](https://www.netacad.com/resources/lab-downloads?courseLang=en-US).
 
 ---
 
