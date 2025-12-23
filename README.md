@@ -10,7 +10,8 @@ Designed to eliminate common installation errors and streamline setup for NetAca
 
 ---
 
-<img width="517" height="385" alt="Packet Tracer Installer Preview" src="https://github.com/user-attachments/assets/34b4b832-459d-42dd-9c54-aec981ab75e4" />
+<img width="537" height="263" alt="image" src="https://github.com/user-attachments/assets/89aa918b-1c10-4f03-9c60-66e154e3a2a7" />
+
 
 Originally, Packet Tracer can be downloaded from [Cisco NetAcad](https://www.netacad.com/resources/lab-downloads?courseLang=en-US).
 
