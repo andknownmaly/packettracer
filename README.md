@@ -1,4 +1,4 @@
-# 🧠 Cisco Packet Tracer Installer for Linux
+# Cisco Packet Tracer Installer for Linux
 
 [![Platform](https://img.shields.io/badge/platform-Linux-blue.svg)](https://www.linux.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
