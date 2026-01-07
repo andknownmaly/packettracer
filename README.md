@@ -97,7 +97,6 @@ This workaround allows 8.2.2 to inherit the authentication from 9.0.0, bypassing
 ## 📝 Additional Notes
 
 ### General
-* The script ensures `xterm` is installed before continuing.
 * If you face permission issues, **do not** run with `sudo`. The script will ask for sudo password when needed.
 * The unified script automatically detects if Packet Tracer is already installed and shows version information.
 
