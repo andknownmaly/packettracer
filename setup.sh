@@ -20,10 +20,10 @@ fi
 echo -e "${YELLOW}Detecting system and installing dependencies...${NC}"
 if command -v apt-get &> /dev/null; then
     sudo apt-get update -qq
-    sudo apt-get install -y wget xterm figlet 2>/dev/null || sudo apt-get install -y wget xterm
+    sudo apt-get install -y wget figlet 2>/dev/null || sudo apt-get install -y wget
 elif command -v apt &> /dev/null; then
     sudo apt update -qq
-    sudo apt install -y wget xterm figlet 2>/dev/null || sudo apt install -y wget xterm
+    sudo apt install -y wget figlet 2>/dev/null || sudo apt install -y wget
 else
     echo -e "${RED}Error: apt/apt-get not found. This script requires a Debian-based distribution.${NC}"
     exit 1
@@ -201,7 +201,6 @@ function install_packettracer_900() {
         return 1
     fi
 
-    # Check if it's AppImage format (version 9.0.0+)
     if [ -f "/opt/pt/packettracer.AppImage" ]; then
         echo -e "${GREEN}Detected AppImage format (Packet Tracer 9.0.0)${NC}"
         echo -e "${CYAN}AppImage is self-contained - No library isolation needed${NC}"
@@ -216,15 +215,13 @@ function install_packettracer_900() {
         cd /tmp
         /opt/pt/packettracer.AppImage --appimage-extract "*.desktop" >/dev/null 2>&1
         /opt/pt/packettracer.AppImage --appimage-extract "app.png" >/dev/null 2>&1
-        
-        # Copy icon to user icons directory
+
         mkdir -p "$HOME/.local/share/icons/hicolor/256x256/apps"
         if [ -f "/tmp/squashfs-root/app.png" ]; then
             cp /tmp/squashfs-root/app.png "$HOME/.local/share/icons/hicolor/256x256/apps/packettracer.png"
         fi
         
         if [ -f "/tmp/squashfs-root/CiscoPacketTracer-9.0.0.desktop" ]; then
-            # Update Exec path and Icon in desktop files
             sed -e "s|@EXEC_PATH@|/opt/pt/packettracer.AppImage|g" \
                 -e "s|Icon=app|Icon=packettracer|g" \
                 /tmp/squashfs-root/CiscoPacketTracer-9.0.0.desktop > "$HOME/.local/share/applications/CiscoPacketTracer-9.0.0.desktop"
@@ -237,8 +234,7 @@ function install_packettracer_900() {
                 /tmp/squashfs-root/CiscoPacketTracerPtsa-9.0.0.desktop > "$HOME/.local/share/applications/CiscoPacketTracerPtsa-9.0.0.desktop"
             chmod +x "$HOME/.local/share/applications/CiscoPacketTracerPtsa-9.0.0.desktop"
         fi
-        
-        # Cleanup
+
         rm -rf /tmp/squashfs-root
         
         if command -v update-desktop-database &> /dev/null; then
@@ -248,8 +244,7 @@ function install_packettracer_900() {
         if command -v gtk-update-icon-cache &> /dev/null; then
             gtk-update-icon-cache -f -t "$HOME/.local/share/icons/hicolor" 2>/dev/null
         fi
-        
-        # Run PacketTracer for EULA acceptance
+
         clear
         echo -e "${CYAN}╔════════════════════════════════════════════════════╗${NC}"
         echo -e "${CYAN}║        EULA ACCEPTANCE REQUIRED - FIRST RUN       ║${NC}"
@@ -279,11 +274,9 @@ function install_packettracer_900() {
         return 0
         
     else
-        # Traditional binary installation (non-AppImage fallback)
-        # Libraries are isolated to /opt/pt/lib/ and only loaded when PT runs
         echo -e "${YELLOW}Downloading required libraries...${NC}"
         if [ ! -f "/tmp/packettracer-libs.tar.gz" ]; then
-            wget --progress=bar:force -O /tmp/packettracer-libs.tar.gz https://github.com/andknownmaly/packettracer/releases/download/8.2.2/packettracer-libs.tar.gz
+            wget --progress=bar:force -O /tmp/packettracer-libs.tar.gz https://github.com/andknownmaly/packettracer/releases/download/lib.1.0/packettracer-libs.tar.gz
             
             if [ $? -ne 0 ]; then
                 echo -e "${YELLOW}Warning: Failed to download libraries, continuing without additional libraries...${NC}"
@@ -301,7 +294,7 @@ function install_packettracer_900() {
                 echo -e "${YELLOW}Removing cached file and trying fresh download...${NC}"
                 rm -f /tmp/packettracer-libs.tar.gz
                 
-                wget --progress=bar:force -O /tmp/packettracer-libs.tar.gz https://github.com/andknownmaly/packettracer/releases/download/8.2.2/packettracer-libs.tar.gz
+                wget --progress=bar:force -O /tmp/packettracer-libs.tar.gz https://github.com/andknownmaly/packettracer/releases/download/lib.1.0/packettracer-libs.tar.gz
                 
                 if [ $? -eq 0 ]; then
                     sudo tar -xzf /tmp/packettracer-libs.tar.gz -C /opt/pt/ 2>&1
@@ -316,9 +309,7 @@ function install_packettracer_900() {
         fi
 
         echo -e "${YELLOW}Creating launcher script (with isolated library path)...${NC}"
-        
-        # Create launcher with isolated LD_LIBRARY_PATH
-        # Libraries only active when PT runs, system unaffected when PT closed
+
         if [ -d "/opt/pt/lib" ]; then
             sudo tee /opt/pt/packettracer > /dev/null << 'EOF'
 #!/bin/bash
@@ -451,18 +442,12 @@ while true; do
     if [ -d "/opt/pt" ]; then
         echo -e "${GREEN}Status: Packet Tracer is installed${NC}"
         
-        # Try to detect version
         if [ -f "/opt/pt/packettracer.AppImage" ]; then
             echo -e "${CYAN}Version: 9.0.0 (AppImage)${NC}"
-        elif [ -f "/opt/pt/bin/PacketTracer" ]; then
-            # Try to detect from binary or files
-            if grep -q "9.0" /opt/pt/bin/PacketTracer 2>/dev/null; then
-                echo -e "${CYAN}Version: 9.0.0${NC}"
-            elif grep -q "8.2" /opt/pt/bin/PacketTracer 2>/dev/null; then
-                echo -e "${CYAN}Version: 8.2.2${NC}"
-            else
-                echo -e "${CYAN}Version: Unknown${NC}"
-            fi
+        elif [ -f "/opt/pt/packettracer" ]; then
+            echo -e "${CYAN}Version: 8.2.2${NC}"
+        else
+            echo -e "${CYAN}Version: Unknown${NC}"
         fi
     else
         echo -e "${YELLOW}Status: Packet Tracer is not installed${NC}"
