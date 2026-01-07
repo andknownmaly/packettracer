@@ -25,7 +25,6 @@ Originally packet, this Packet Tracer is downloaded from [Cisco NetAcad](https:/
 * ✅ **Unified script** for both Packet Tracer 8.2.2 and 9.0.0
 * 🎯 Interactive menu to choose version
 * 🧹 Clean uninstallation option
-* 📦 Uses `xterm` to show download and installation progress
 * 🪄 Auto-checks dependencies for smooth setup
 * 🧰 Compatible with Debian, Ubuntu, Kali, and other APT-based distros
 * 🎯 AppImage support for Packet Tracer 9.0.0
