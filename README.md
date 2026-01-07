@@ -12,6 +12,7 @@ Designed to eliminate common installation errors and streamline setup for NetAca
 
 ---
 
+<img width="927" height="296" alt="image" src="https://github.com/user-attachments/assets/4168c694-3916-48b8-9336-68f360c49e11" />
 
 
 
