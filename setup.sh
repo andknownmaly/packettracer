@@ -20,10 +20,10 @@ fi
 echo -e "${YELLOW}Detecting system and installing dependencies...${NC}"
 if command -v apt-get &> /dev/null; then
     sudo apt-get update -qq
-    sudo apt-get install -y wget figlet 2>/dev/null || sudo apt-get install -y wget
+    sudo apt-get install -y wget figlet libfuse2t64  libpcre2-32-0  libpcre2-dev  libpcre2-posix3 2>/dev/null || sudo apt-get install -y wget
 elif command -v apt &> /dev/null; then
     sudo apt update -qq
-    sudo apt install -y wget figlet 2>/dev/null || sudo apt install -y wget
+    sudo apt install -y wget figlet libfuse2t64  libpcre2-32-0  libpcre2-dev  libpcre2-posix3 2>/dev/null || sudo apt install -y wget
 else
     echo -e "${RED}Error: apt/apt-get not found. This script requires a Debian-based distribution.${NC}"
     exit 1
