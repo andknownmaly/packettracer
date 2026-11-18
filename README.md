@@ -69,10 +69,17 @@ chmod +x setup.sh
 #### 5️⃣ Follow the Interactive Menu
 
 The script will display:
-* **Option 1** → Install Packet Tracer 8.2.2
-* **Option 2** → Install Packet Tracer 9.0.0 (Recommended)
+* **Option 1** → Install Packet Tracer 9.0.0 (Recommended)
+* **Option 2** → Install Packet Tracer 8.2.2
 * **Option 3** → Uninstall Packet Tracer
-* **Option 4** → Exit
+* **Option 4** → Repair system folder ownership (if an older `setup.sh` changed it)
+* **Option 5** → Exit
+
+To install from a `.deb` you downloaded from NetAcad yourself, pass its path:
+
+```bash
+PT_DEB=/path/to/CiscoPacketTracer.deb ./setup.sh
+```
 
 ---
 
@@ -83,10 +90,10 @@ The script will display:
 **Version 8.2.2 uses isolated libraries** and may experience login problems due to library isolation. If you need to use version 8.2.2:
 
 #### Recommended Workaround:
-1. **First install version 9.0.0** using the script (Option 2)
+1. **First install version 9.0.0** using the script (Option 1)
 2. Login to your Cisco NetAcad account in version 9.0.0
-3. Uninstall version 9.0.0 (Option 3)
-4. Install version 8.2.2 (Option 1)
+3. Uninstall version 9.0.0 (Option 3), answering **N** when asked to delete your settings and saved login
+4. Install version 8.2.2 (Option 2)
 
 This workaround allows 8.2.2 to inherit the authentication from 9.0.0, bypassing the isolated library login issue.
 
@@ -135,7 +142,7 @@ This workaround allows 8.2.2 to inherit the authentication from 9.0.0, bypassing
 * Libraries: `/opt/pt/lib/`
 * Launcher: `/opt/pt/packettracer`
 * Symlink: `/usr/local/bin/packettracer`
-* Desktop: `/usr/share/applications/PacketTracer.desktop`
+* Desktop: `/usr/share/applications/cisco-pt.desktop`
 * Config: `~/.config/PacketTracer/`
 
 ---
